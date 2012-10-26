@@ -16,6 +16,7 @@ footer #enlaces {
     width: 960px;
     margin: 0 auto;
     padding: 2em;
+    padding-bottom: 3em;
     background: #555;
     color: #f0f0f0;
 }
@@ -74,6 +75,7 @@ input.boton {
     width: 960px;
     margin: 0 auto;
     padding: 1em 2em;
+    padding-bottom: 3em;
     background: #fff;
 }
 
@@ -312,4 +314,36 @@ div.error input {
 
 span.errors {
     color: #e40613;
+}
+
+footer .columna.dcha {
+    float: right;
+    width: 200px;
+    text-align: right;
+    padding-top: 1em;
+}
+
+footer .columna.dcha ul li {
+    margin-right: 0;
+    margin-left: 1.5em;
+}
+
+
+footer #enlaces h2 {
+    color: #cccccc;
+    font-weight: normal;
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 1.5em;
 }
