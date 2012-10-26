@@ -1,0 +1,29 @@
+@(candidate: Candidate, apuntados: Long)
+
+@main("joined the APP team") {
+<div id="content">
+    <h1>GRACIAS POR APUNTARTE!</h1>
+    <p>
+        Gracias por apuntarte a <span class="destaque">the APP team</span>.
+        Ya somos <span class="destaque">@apuntados apuntados</span> para poder desarrollar nuestras ideas.
+    </p>
+    <p>
+        Te vamos a enviar un correo a <b>@candidate.email</b> para confirmar tu participación
+    </p>
+    <h2>Los datos que tenemos:</h2>
+    <p>
+        Soy un gran <b>@candidate.profile</b> y conozco a la perfección tecnologías como <b>@candidate.mainTechnologies</b>.
+    </p>
+    <p>
+        @if(candidate.otherTechnologies) {
+            También os puedo echar una mano con <b>@candidate.otherTechnologies</b>.
+        }
+        @if(candidate.twitterAccount) {
+            Me podéis encontrar en twitter en <b>@@@candidate.twitterAccount</b>.
+        }
+        @if(candidate.portfolio) {
+            Para ver mi curre, podéis visitar <b>@candidate.portfolio</b>.
+        }
+    </p>
+</div>
+}
