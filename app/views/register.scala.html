@@ -17,7 +17,7 @@
         @form(routes.Application.apply) {
             <p class="question">Tu email:</p>
             <p class="answer">
-                @inputText(myForm("email"), 'size -> 50)
+                @inputText(myForm("email"), 'size -> 50, 'maxlength -> 50)
             </p>
 
             <p class="question">Dinos en qué perfil encajas:</p>
@@ -28,17 +28,17 @@
 
             <p class="question">En qué tecnologías/herramientas/... crees que eres muy bueno?</p>
             <p class="answer">Pon una lista de cosas separadas por comas, p.ej: css3, html5, play!, backbone.js</p>
-            <p class="answer">@inputText(myForm("mainTechnologies"), 'size -> 80)</p>
+            <p class="answer">@inputText(myForm("mainTechnologies"), 'size -> 80, 'maxlength -> 100)</p>
 
             <p class="question">De qué cosas controlas para echar una mano aunque no seas tan bueno?</p>
-            <p class="answer">@inputText(myForm("otherTechnologies"), 'size -> 80)</p>
+            <p class="answer">@inputText(myForm("otherTechnologies"), 'size -> 80, 'maxlength -> 90)</p>
 
             <p class="question">Tienes una URL con tu portfolio, trabajos, proyectos?</p>
             <p class="answer">Por ejemplo en behance, sortfolio, github o en una página personal</p>
-            <p class="answer">@inputText(myForm("portfolio"), 'size -> 80)</p>
+            <p class="answer">@inputText(myForm("portfolio"), 'size -> 80, 'maxlength -> 190)</p>
 
             <p class="question">Cuenta de twitter?</p>
-            <p class="answer">@inputText(myForm("twitterAccount"), 'size -> 50)</p>
+            <p class="answer">@inputText(myForm("twitterAccount"), 'size -> 50, 'maxlength -> 80)</p>
 
             <div class="botones banda">
                 <input type="submit" class="boton" value="Unirme al equipo ->"/>
