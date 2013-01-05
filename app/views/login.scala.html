@@ -1,0 +1,42 @@
+@(loginForm: Form[(String, String)])(implicit flash: Flash)
+
+@import helper._
+@import views.html.helper._
+
+@implicitField = @{ FieldConstructor(fieldTemplate.f) }
+
+@main("login to the APP team") {
+
+    <div id="content">
+        <h1>ENTRAR EN MI EQUIPO</h1>
+        <p>
+            El plazo de inscripción acabó el <span class="destaque">3 de Enero</span>. Recibirás un correo para decirte si formas parte de algún equipo o no.<br>
+            Si fuiste seleccionado/a para participar en The APP Team, puedes entrar desde aquí y ver los detalles e ideas de tu equipo.
+        </p>
+
+        @form(routes.Auth.authenticate) {
+
+            @loginForm.globalError.map { error =>
+                <p class="error">
+                    @error.message
+                </p>
+            }
+
+            <p class="question">Usa aquí el email que nos diste en el registro:</p>
+            <p class="answer">
+            @inputText(loginForm("email"), 'size -> 50, 'maxlength -> 50)
+            </p>
+
+            <p class="question">Tu password:</p>
+            <p class="answer">Si es la primera vez que entras lo que pongas aquí se establecerá como tu contraseña. No te preocupes, guardamos un hash :)</p>
+            <p class="answer">
+            @inputPassword(loginForm("password"), 'size -> 50, 'maxlength -> 50)
+            </p>
+
+            <div class="botones banda">
+            <input type="submit" class="boton" value="Ver mi equipo ->"/>
+            </div>
+        }
+    </div>
+
+}

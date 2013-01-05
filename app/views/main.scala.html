@@ -13,27 +13,43 @@
     </head>
     <body>
         <header>
-            <div id="logo">
-                <a href="@routes.Application.index"><img src="@routes.Assets.at("images/logoapp.gif")" /></a>
+            <div id="header-content">
+                <div id="logo">
+                    <a href="@routes.Application.index"><img src="@routes.Assets.at("images/logoapp_solo.gif")" /></a>
+                    <p id="slogan">Solo los mejores</p>
+                </div>
                 <div id="quieres-ir">
                     <p>
-                        Eres el mejor en lo que haces?<br/>
+                        Eres bueno en lo que haces?<br/>
                         Si de verdad lo crees y encajas en alguno de los perfiles que se buscan, quizás puedas formar parte de
                         <b>The APP Team</b>
                     </p>
-                    <a href="@routes.Application.register" class="boton">Quiero ir -></a>
+                    <!--<a href="@routes.Application.register" class="boton">Quiero ir -></a>-->
+                    <a href="@routes.Auth.login" class="boton">Entrar -></a>
                 </div>
+            </div>
         </header>
         <div id="main">
+
                 @content
+
+                <div id="sponsors">
+                    <div class="separador-zona"></div>
+                    <p class="titulo secundario">Sponsors y colaboradores</p>
+
+                    <ul>
+                        <li><a href="http://www.wekco.net" target="_blank"><img src="@routes.Assets.at("images/wekco.png")" alt="WekCo" /></a></li>
+                        <li><a href="http://www.jetbrains.com" target="_blank"><img src="@routes.Assets.at("images/jetbrains.png")" alt="JetBrains, Develop with pleasure!" /></a></li>
+                        <li><a href="http://www.dedominiopublico.com" target="_blank"><img src="@routes.Assets.at("images/ddp.png")" alt="de dominio público" /></a></li>
+                    </ul>
+                </div>
         </div>
         <footer>
             <div id="enlaces">
                 <div class="columna doble">
-                    <h2>Colaboran</h2>
+                    <h2>Organiza</h2>
                     <ul>
                         <li><a href="http://www.agile-galicia.org" target="_blank"><img src="@routes.Assets.at("images/logo_agile.png")" alt="agile galicia" /></a></li>
-                        <li><a href="http://www.wekco.net" target="_blank"><img src="@routes.Assets.at("images/wekco.png")" alt="WekCo" /></a></li>
                     </ul>
                 </div>
                 <div class="columna dcha">

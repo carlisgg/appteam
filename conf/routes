@@ -7,6 +7,11 @@ GET     /                           controllers.Application.index
 GET     /register                   controllers.Application.register
 POST    /register                   controllers.Application.apply
 
+GET     /login                      controllers.Auth.login
+POST    /login                      controllers.Auth.authenticate
+
+GET     /team                       controllers.Teams.details
+
 GET     /faq                        controllers.Application.faq
 
 # Map static resources from the /public folder to the /assets URL path

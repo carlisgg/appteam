@@ -1,0 +1,23 @@
+@(candidate: Candidate, team: Seq[Candidate])
+
+@main("your APP team") {
+<div id="content">
+    <h1>BIENVENIDO A TU EQUIPO</h1>
+    <p>
+        Formas parte de <span class="destaque">the APP team: @candidate.team</span>.
+    </p>
+
+    <h2>Los otros integrantes de tu equipo:</h2>
+    <p>
+        <ul>
+        @team.map { mate =>
+            <li><span>@mate.profile</span>: @mate.email (@mate.twitterAccount)</li>
+        }
+        </ul>
+    </p>
+
+    <h2>Las ideas propuestas:</h2>
+
+    <p>En breve activaremos la sugerencia y votación de las ideas</p>
+</div>
+}

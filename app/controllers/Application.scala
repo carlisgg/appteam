@@ -1,6 +1,5 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
@@ -15,7 +14,9 @@ object Application extends Controller {
       "mainTechnologies" -> nonEmptyText,
       "otherTechnologies" -> optional(text),
       "twitterAccount" -> optional(text),
-      "portfolio" -> optional(text)
+      "portfolio" -> optional(text),
+      "password" -> optional(text),
+      "team" -> optional(text)
     ) (Candidate.apply) (Candidate.unapply)
   )
   
