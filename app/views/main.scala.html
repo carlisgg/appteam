@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String)(content: Html)(implicit request: play.api.mvc.RequestHeader)
 
 <!DOCTYPE html>
 
@@ -25,7 +25,17 @@
                         <b>The APP Team</b>
                     </p>
                     <!--<a href="@routes.Application.register" class="boton">Quiero ir -></a>-->
-                    <a href="@routes.Auth.login" class="boton">Entrar -></a>
+                    @defining(Auth.getLoggedUser(request)) { user =>
+                        @user match{
+                            case Some(_) => {
+                                <a href="@routes.Auth.logout" class="boton">Salir X</a>
+                                <a href="@routes.Teams.details" class="enlace">Equipo -></a>
+                            }
+                            case _ => {
+                                <a href="@routes.Auth.login" class="boton">Entrar -></a>
+                            }
+                        }
+                    }
                 </div>
             </div>
         </header>

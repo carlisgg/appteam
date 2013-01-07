@@ -1,17 +1,21 @@
-@(candidate: Candidate, team: Seq[Candidate])
+@(candidate: Candidate, team: Seq[Candidate])(implicit request: RequestHeader)
 
 @main("your APP team") {
-<div id="content">
+<div id="content" class="team-details">
     <h1>BIENVENIDO A TU EQUIPO</h1>
     <p>
-        Formas parte de <span class="destaque">the APP team: @candidate.team</span>.
+        Formas parte de <span class="destaque">the APP team:</span> <span class="team-name">@candidate.team</span>.
     </p>
 
-    <h2>Los otros integrantes de tu equipo:</h2>
+    <h2>Los integrantes de tu equipo:</h2>
     <p>
-        <ul>
+        <ul id="team-members">
         @team.map { mate =>
-            <li><span>@mate.profile</span>: @mate.email (@mate.twitterAccount)</li>
+            <li>
+                <div class="profile @mate.profile.replace('ñ', 'n')">@mate.profile</div>
+                <div class="email">@mate.email</div>
+                <div class="twitter"><b>twitter:</b> @mate.twitterAccount.getOrElse("No disponible")</div>
+            </li>
         }
         </ul>
     </p>
@@ -19,5 +23,37 @@
     <h2>Las ideas propuestas:</h2>
 
     <p>En breve activaremos la sugerencia y votación de las ideas</p>
+
+    <h2>La agenda:</h2>
+
+    <p>Esta agenda es orientativa y libre, iremos decidiendo a medida que pase el tiempo si nos ajustamos o no a ella.</p>
+    <dl class="agenda">
+        <dt>VIERNES, 11</dt>
+        <dd>
+            <ul>
+                <li>a las <span class="destaque">15:00</span> - comida para conocernos todos</li>
+                <li>de <span class="destaque">16:30 a 21:30</span> - currando</li>
+            </ul>
+        </dd>
+        <dt>SÁBADO, 12</dt>
+        <dd>
+            <ul>
+                <li>de <span class="destaque">9:00 a 14:30</span> - currando</li>
+                <li>de <span class="destaque">14:30 a 16:00</span> - retrospectiva y comida</li>
+                <li>de <span class="destaque">16:00 a 20:30</span> - currando</li>
+            </ul>
+        </dd>
+        <dt>DOMINGO, 13</dt>
+        <dd>
+            <ul>
+                <li>de <span class="destaque">9:00 a 14:30</span> - currando</li>
+                <li>de <span class="destaque">14:30 a 16:00</span> - retrospectiva y comida</li>
+                <li>de <span class="destaque">16:00 a 19:00</span> - currando</li>
+                <li>de <span class="destaque">19:00 a 19:45</span> - retrospectiva final y conclusiones, despedida y birras</li>
+            </ul>
+        </dd>
+    </dl>
+
+
 </div>
 }

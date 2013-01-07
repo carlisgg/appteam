@@ -10,6 +10,8 @@ POST    /register                   controllers.Application.apply
 GET     /login                      controllers.Auth.login
 POST    /login                      controllers.Auth.authenticate
 
+GET     /logout                     controllers.Auth.logout
+
 GET     /team                       controllers.Teams.details
 
 GET     /faq                        controllers.Application.faq

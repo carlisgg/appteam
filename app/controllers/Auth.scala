@@ -4,6 +4,7 @@ import play.api.mvc._
 import play.api.data.Form
 import play.api.data.Forms._
 import models.Candidate
+import play.api.Logger
 
 object Auth extends Controller {
 
@@ -20,6 +21,12 @@ object Auth extends Controller {
     Ok(views.html.login(loginForm))
   }
 
+  def logout = Action {
+    Redirect(routes.Application.index).withNewSession.flashing(
+      "success" -> "Se cerro la sesión correctamente"
+    )
+  }
+
   def authenticate = Action { implicit request =>
     loginForm.bindFromRequest.fold(
       formWithErrors => BadRequest(views.html.login(formWithErrors)),
@@ -29,6 +36,10 @@ object Auth extends Controller {
 
   def check(email: String, password: String) = {
     Candidate.existsWithCredentials(email, password)
+  }
+
+  def getLoggedUser(request: RequestHeader): Option[String] = {
+    request.session.get("email")
   }
 }
 

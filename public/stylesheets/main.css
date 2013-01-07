@@ -59,6 +59,16 @@ a.boton, input.boton {
     font-size: 22px;
 }
 
+header a.enlace {
+    padding: 0.4em 1em;
+    color: #fff;
+    text-decoration: none;
+}
+
+header a.enlace:hover {
+    color: #c83737;
+}
+
 a.boton.disabled {
     background-color: #777777;
     color: #cccccc;
@@ -400,3 +410,83 @@ footer ul li {
     display: inline;
     margin-right: 1.5em;
 }
+
+.team-details h2 {
+    margin-top: 2em;
+}
+
+dl.agenda {
+    padding: 0 0 0 1.4em;
+}
+
+dl.agenda dt {
+    float: left;
+    background: #097b93;
+    color: #fff;
+    width: 7em;
+    padding: 0.8em;
+    margin-right: 2em;
+    font-weight: bold;
+}
+
+dl.agenda dd {
+    margin-left: 10em;
+    padding-left: 1em;
+    border-left: 1px dotted #097b93;
+    min-height: 3em;
+}
+
+dl.agenda dd ul {
+    list-style: none;
+    padding-left: 0.2em;
+}
+
+.team-name {
+    font-weight: bold;
+    color: #e40613;
+    font-size: 1.4em;
+}
+
+ul#team-members {
+    list-style: none;
+    padding: 0 0 0 1em;
+}
+
+#team-members li {
+    padding: 0.2em;
+}
+
+#team-members .profile {
+    padding: 0.5em;
+    width: 8em;
+    float: left;
+    text-transform: uppercase;
+}
+
+#team-members .profile.Disenador {
+    background: #19b2d1;
+    color: #fff;
+}
+
+#team-members .profile.Frontend {
+    background: orange;
+    color: #fff;
+}
+
+#team-members .profile.Backend {
+    background: green;
+    color: #fff;
+}
+
+#team-members .email {
+    padding: 0.5em 1.5em;
+    width: 20em;
+    float: left;
+    color: #097b93;
+    font-weight: bold;
+}
+
+#team-members .twitter {
+    padding: 0.5em 1.5em;
+}
+

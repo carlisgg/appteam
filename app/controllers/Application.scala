@@ -21,6 +21,7 @@ object Application extends Controller {
   )
   
   def index = Action { implicit request =>
+    Auth.getLoggedUser(request)
     Ok(views.html.index())
   }
 
