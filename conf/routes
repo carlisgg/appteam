@@ -13,6 +13,9 @@ POST    /login                      controllers.Auth.authenticate
 GET     /logout                     controllers.Auth.logout
 
 GET     /team                       controllers.Teams.details
+POST    /idea                       controllers.Teams.addIdea
+
+POST    /rating                     controllers.Teams.addRating(id_idea: Long)
 
 GET     /faq                        controllers.Application.faq
 

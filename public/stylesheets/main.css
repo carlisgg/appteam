@@ -416,7 +416,7 @@ footer ul li {
 }
 
 dl.agenda {
-    padding: 0 0 0 1.4em;
+    padding: 0 0 0 1.1em;
 }
 
 dl.agenda dt {
@@ -488,5 +488,55 @@ ul#team-members {
 
 #team-members .twitter {
     padding: 0.5em 1.5em;
+}
+
+.ideas {
+    padding: 1em;
+    border-bottom: 1px dotted #777777;
+}
+
+.ideas .idea {
+    margin-bottom: 0.5em;
+    padding: 0.8em;
+    background: #d5d5d5;
+}
+
+.ideas .idea .rating {
+    float: right;
+    background: #fff;
+    padding: 0.5em;
+}
+
+.idea .rating .number {
+    font-size: 2em;
+}
+
+.ideas .rating {
+    font-size: 0.8em;
+}
+
+.idea .rating input, .idea .rating input, .idea .rating div, .idea .rating form {
+    display: inline;
+}
+
+.ideas .title {
+    font-weight: bold;
+    font-size: 1.3em;
+    padding-bottom: 0.3em;
+    padding-right: 2.5em;
+}
+
+.ideas .description {
+    font-size: 1.1em;
+    padding-right: 2.5em;
+}
+
+.ideas-form {
+    font-size: 0.7em;
+    padding: 1em 1.5em 0em 1.5em;
+}
+
+.ideas-form .boton {
+    font-size: 1.2em;
 }
 

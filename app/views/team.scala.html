@@ -1,4 +1,9 @@
-@(candidate: Candidate, team: Seq[Candidate])(implicit request: RequestHeader)
+@(candidate: Candidate, team: Seq[Candidate], ideas: Seq[Idea], newIdeaForm: Form[(String, String)], addRatingForm: Form[(String)])(implicit request: RequestHeader)
+
+@import helper._
+@import views.html.helper._
+
+@implicitField = @{ FieldConstructor(fieldTemplate.f) }
 
 @main("your APP team") {
 <div id="content" class="team-details">
@@ -22,7 +27,55 @@
 
     <h2>Las ideas propuestas:</h2>
 
-    <p>En breve activaremos la sugerencia y votación de las ideas</p>
+    <p>Ya se pueden poner las ideas que queráis aquí. No está habilitada la votación para ordenarlas, pero por lo menos
+        este es un punto de encuentro en el que se pueden ver y discutir por mail cual gusta más.
+    </p>
+    <p>Ya está activa también la votación de ideas, les podéis dar una puntuación de 0 a 5 para ayudar a ordenarlas.</p>
+
+    <div class="ideas">
+        @ideas.map { idea =>
+            <div class="idea">
+                <div class="rating">
+                    @if(Idea.isRatedBy(idea.id.getOrElse(0), candidate.email)) {
+                        <span class="number">@idea.rating</span>
+                    } else {
+                        Puntúa esta idea:
+                        @form(routes.Teams.addRating(idea.id.getOrElse(0)), 'class -> "ideas-form") {
+                            @select(addRatingForm("rating"), options(List("0", "1", "2", "3", "4", "5")))
+                            <input type="submit" class="boton" value="Puntuar"/>
+                        }
+                    }
+                </div>
+                <div class="title">@idea.title</div>
+                <div class="description">@Html(idea.description)</div>
+            </div>
+        }
+    </div>
+
+
+    @form(routes.Teams.addIdea, 'class -> "ideas-form") {
+
+        @newIdeaForm.globalError.map { error =>
+            <p class="error">
+            @error.message
+            </p>
+        }
+
+        <p class="question">Pon aquí un título para la idea (el nombre que pienses para la posible APP estaría bien):</p>
+        <p class="answer">
+            @inputText(newIdeaForm("title"), 'size -> 80, 'maxlength -> 80)
+        </p>
+
+        <p class="question">Descripción de la idea:</p>
+        <p class="answer">Comenta en qué consiste de una forma lo más explicativa posible para que los demás se enteren de qué va</p>
+        <p class="answer">
+            @textarea(newIdeaForm("description"), 'id -> "description",'cols -> 90, 'rows -> 4, 'maxlength -> 4000)
+        </p>
+
+        <div class="botones banda">
+            <input type="submit" class="boton" value="+ Añadir la idea"/>
+        </div>
+    }
 
     <h2>La agenda:</h2>
 
@@ -56,4 +109,14 @@
 
 
 </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#description").cleditor({
+                width:        650, // width not including margins, borders or padding
+                height:       150, // height not including margins, borders or padding
+                controls:     "bold italic underline | bullets numbering"
+            });
+        });
+    </script>
 }

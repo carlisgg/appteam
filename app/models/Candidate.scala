@@ -11,7 +11,7 @@ case class Candidate(email: String, profile: String, mainTechnologies: String, o
                      twitterAccount: Option[String], portfolio: Option[String], password: Option[String],
                      team: Option[String])
 
-object Candidate extends {
+object Candidate {
 
   /**
    * Parse a Candidate from a ResultSet
